@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Web Pages Assignment</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Interactive Web Pages with JavaScript</h1>
+
+      <!-- Part 1: JavaScript Event Handling -->
+      <div class="section">
+        <h2>Part 1: JavaScript Event Handling and Interaction</h2>
+        <p>
+          This section demonstrates various JavaScript event handlers and user
+          interactions.
+        </p>
+
+        <div class="event-demo">
+          <button class="event-button click-btn" id="clickBtn">
+            Click Me!
+          </button>
+          <button class="event-button hover-btn" id="hoverBtn">
+            Hover Over Me!
+          </button>
+          <button class="event-button double-click-btn" id="doubleClickBtn">
+            Double Click Me!
+          </button>
+          <input
+            type="text"
+            class="key-input"
+            id="keyInput"
+            placeholder="Type something here..."
+          />
+        </div>
+
+        <div class="event-output" id="eventOutput">
+          Event log will appear here...
+        </div>
+      </div>
+
+      <!-- Part 2: Building Interactive Elements -->
+      <div class="section">
+        <h2>Part 2: Building Interactive Elements</h2>
+
+        <div class="interactive-grid">
+          <!-- Image Gallery -->
+          <div class="image-gallery">
+            <h3>Interactive Image Gallery</h3>
+            <div>
+              <img
+                class="thumbnail"
+                src="https://i.pinimg.com/1200x/47/0f/a8/470fa8ecdf5bb4efbedc3e05751bfa17.jpg"
+                alt="Image 1"
+                onclick="changeMainImage(this.src, 'Beautiful Sunset')"
+              />
+              <img
+                class="thumbnail"
+                src="https://i.pinimg.com/736x/da/81/f2/da81f2d67f30ac17481cd516b3a8d86b.jpg"
+                alt="Image 2"
+                onclick="changeMainImage(this.src, 'Ocean View')"
+              />
+              <img
+                class="thumbnail"
+                src="https://i.pinimg.com/736x/aa/85/6f/aa856fc73aec1727be753d9c342a8e0a.jpg"
+                alt="Image 3"
+                onclick="changeMainImage(this.src, 'Mountain Landscape')"
+              />
+            </div>
+            <img
+              class="main-image"
+              id="mainImage"
+              src="https://i.pinimg.com/736x/be/a5/b4/bea5b4614742421e3b015df6ac9e5231.jpg"
+              alt="Main Image"
+            />
+            <p id="imageCaption">
+              Click on thumbnails to change the main image
+            </p>
+          </div>
+
+          <!-- Accordion -->
+          <div class="accordion">
+            <h3
+              style="
+                padding: 15px;
+                margin: 0;
+                background: #667eea;
+                color: white;
+              "
+            >
+              Accordion Menu
+            </h3>
+            <div class="accordion-item">
+              <div class="accordion-header" onclick="toggleAccordion(this)">
+                <span>Web Development</span>
+                <span>▼</span>
+              </div>
+              <div class="accordion-content">
+                <p>
+                  Web development involves creating websites and web
+                  applications using HTML, CSS, and JavaScript. It includes
+                  frontend development for user interfaces and backend
+                  development for server-side functionality.
+                </p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header" onclick="toggleAccordion(this)">
+                <span>JavaScript Programming</span>
+                <span>▼</span>
+              </div>
+              <div class="accordion-content">
+                <p>
+                  JavaScript is a versatile programming language that runs in
+                  browsers and enables interactive web pages. It supports event
+                  handling, DOM manipulation, and asynchronous programming.
+                </p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header" onclick="toggleAccordion(this)">
+                <span>Responsive Design</span>
+                <span>▼</span>
+              </div>
+              <div class="accordion-content">
+                <p>
+                  Responsive design ensures websites work well on all devices
+                  and screen sizes. It uses flexible layouts, media queries, and
+                  scalable images to adapt to different viewing environments.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab Interface -->
+        <div class="tab-container" style="margin-top: 20px">
+          <div class="tab-buttons">
+            <button class="tab-button active" onclick="openTab(event, 'tab1')">
+              HTML
+            </button>
+            <button class="tab-button" onclick="openTab(event, 'tab2')">
+              CSS
+            </button>
+            <button class="tab-button" onclick="openTab(event, 'tab3')">
+              JavaScript
+            </button>
+          </div>
+          <div id="tab1" class="tab-content active">
+            <h4>HTML - Structure</h4>
+            <p>
+              HTML (HyperText Markup Language) provides the basic structure of
+              web pages. It uses elements and tags to define content like
+              headings, paragraphs, links, and images.
+            </p>
+            <p>
+              Key HTML concepts include semantic markup, accessibility, and
+              proper document structure.
+            </p>
+          </div>
+          <div id="tab2" class="tab-content">
+            <h4>CSS - Styling</h4>
+            <p>
+              CSS (Cascading Style Sheets) controls the visual presentation of
+              web pages. It handles layout, colors, fonts, animations, and
+              responsive design.
+            </p>
+            <p>
+              Modern CSS includes features like Flexbox, Grid, and CSS Variables
+              for powerful styling capabilities.
+            </p>
+          </div>
+          <div id="tab3" class="tab-content">
+            <h4>JavaScript - Interactivity</h4>
+            <p>
+              JavaScript adds interactivity and dynamic behavior to web pages.
+              It can manipulate the DOM, handle user events, and communicate
+              with servers.
+            </p>
+            <p>
+              JavaScript supports modern programming concepts like promises,
+              async/await, and modules.
+            </p>
+          </div>
+        </div>
+
+        <!-- Dynamic List -->
+        <div class="dynamic-list" style="margin-top: 20px">
+          <h3>Dynamic To-Do List</h3>
+          <div class="add-item-container">
+            <input
+              type="text"
+              class="add-item-input"
+              id="newItemInput"
+              placeholder="Enter new task..."
+            />
+            <button class="add-btn" onclick="addListItem()">Add Task</button>
+          </div>
+          <div id="dynamicList">
+            <div class="list-item">
+              <span>Complete JavaScript assignment</span>
+              <button class="delete-btn" onclick="removeListItem(this)">
+                Delete
+              </button>
+            </div>
+            <div class="list-item">
+              <span>Review HTML and CSS concepts</span>
+              <button class="delete-btn" onclick="removeListItem(this)">
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Part 3: Form Validation -->
+      <div class="section">
+        <h2>Part 3: Form Validation with JavaScript</h2>
+        <p>
+          This form demonstrates comprehensive client-side validation with
+          real-time feedback.
+        </p>
+
+        <div class="form-container">
+          <form id="validationForm" novalidate>
+            <div class="form-group">
+              <label for="fullName">Full Name *</label>
+              <input type="text" id="fullName" name="fullName" required />
+              <div class="error-message">
+                Please enter your full name (at least 2 characters)
+              </div>
+              <div class="success-message">✓ Valid name</div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" required />
+              <div class="error-message">
+                Please enter a valid email address
+              </div>
+              <div class="success-message">✓ Valid email</div>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number *</label>
+              <input type="tel" id="phone" name="phone" required />
+              <div class="error-message">
+                Please enter a valid phone number (10 digits)
+              </div>
+              <div class="success-message">✓ Valid phone number</div>
+            </div>
+
+            <div class="form-group">
+              <label for="age">Age *</label>
+              <input
+                type="number"
+                id="age"
+                name="age"
+                min="13"
+                max="120"
+                required
+              />
+              <div class="error-message">Age must be between 13 and 120</div>
+              <div class="success-message">✓ Valid age</div>
+            </div>
+
+            <div class="form-group">
+              <label for="country">Country *</label>
+              <select id="country" name="country" required>
+                <option value="">Select a country</option>
+                <option value="us">United States</option>
+                <option value="uk">United Kingdom</option>
+                <option value="ca">Canada</option>
+                <option value="au">Australia</option>
+                <option value="de">Germany</option>
+                <option value="fr">France</option>
+                <option value="ke">Kenya</option>
+                <option value="other">Other</option>
+              </select>
+              <div class="error-message">Please select a country</div>
+              <div class="success-message">✓ Country selected</div>
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password *</label>
+              <input type="password" id="password" name="password" required />
+              <div class="error-message">
+                Password must be at least 8 characters with uppercase,
+                lowercase, and number
+              </div>
+              <div class="success-message">✓ Strong password</div>
+            </div>
+
+            <div class="form-group">
+              <label for="confirmPassword">Confirm Password *</label>
+              <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                required
+              />
+              <div class="error-message">Passwords do not match</div>
+              <div class="success-message">✓ Passwords match</div>
+            </div>
+
+            <div class="form-group">
+              <label for="website">Website (Optional)</label>
+              <input type="url" id="website" name="website" />
+              <div class="error-message">Please enter a valid URL</div>
+              <div class="success-message">✓ Valid URL</div>
+            </div>
+
+            <div class="form-group">
+              <label for="comments">Comments</label>
+              <textarea
+                id="comments"
+                name="comments"
+                rows="4"
+                placeholder="Any additional comments..."
+              ></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">
+              Submit Form
+            </button>
+          </form>
+
+          <div
+            id="formResult"
+            style="
+              margin-top: 20px;
+              padding: 15px;
+              border-radius: 8px;
+              display: none;
+            "
+          ></div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
